@@ -1,0 +1,146 @@
+body {
+  display: grid;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#content {
+  min-width: 320px;
+  max-width: 375px;
+  padding: 15px;
+  display: grid;
+  gap: 15px;
+  background-color: var(--Neutral-900);
+}
+
+.top-bar {
+  background-color: var(--Neutral-800);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: flex-end;
+  padding: 10px;
+  outline: 1px dashed yellow;
+}
+
+.top-logo {
+  /* color: var(--Neutral-0); */
+  outline: 1px dashed red;
+  color: var(--Neutral-800);
+}
+
+.top-icon {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background-color: var(--Neutral-600);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  /* outline: 1px dashed green; */
+}
+
+.filter-bar {
+  display: grid;
+  justify-items: center;
+  outline: 1px dashed red;
+}
+
+.filter-title {
+  font: var(--text-title);
+  margin-block: 20px;
+}
+
+.filter-title,
+.filter-tab button,
+.extension-title,
+.extension-body,
+.remove-button {
+  color: var(--Neutral-0);
+}
+
+.filter-tab {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  gap: 10px;
+  outline: 1px dashed blue;
+}
+
+.filter-tab button {
+  font: var(--text-button);
+  background-color: var(--Neutral-700);
+  border: 1px solid var(--Neutral-0);
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.extension-card {
+  background-color: var(--Neutral-700);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.extension-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-column: 2; */
+  /* justify-self: flex-start; */
+  align-items: flex-start;
+  margin-bottom: 10px;
+  /* outline: 1px dashed white; */
+}
+
+.extension-icon {
+  background-image: url(assets/images/logo-devlens.svg);
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  /* outline: 1px dashed white; */
+}
+
+.extension-description {
+  display: grid;
+  justify-content: flex-start;
+  width: 230px;
+  gap: 10px;
+  /* outline: 1px dashed red; */
+}
+
+.extension-title {
+  font: var(--text-subtitle);
+}
+
+.extension-body {
+  font: var(--text-body);
+  opacity: 0.8;
+}
+
+.extension-actions {
+  display: flex;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  /* outline: 1px dashed orange; */
+}
+
+.remove-button {
+  font: var(--text-body);
+  background-color: var(--Neutral-700);
+  border: 1px solid var(--Neutral-300);
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  /* outline: 1px dashed orange; */
+}
+
+.switch {
+  outline: 1px dashed red;
+
+}
