@@ -11,7 +11,8 @@ body {
   padding: 15px;
   display: grid;
   gap: 15px;
-  background-color: var(--Neutral-900);
+  /* background-color: var(--Neutral-800); */
+  background-image: var(--Dark-Gradient);
 }
 
 .top-bar {
@@ -22,23 +23,17 @@ body {
   align-items: center;
   justify-items: flex-end;
   padding: 10px;
-  outline: 1px dashed yellow;
-}
-
-.top-logo {
-  /* color: var(--Neutral-0); */
-  outline: 1px dashed red;
-  color: var(--Neutral-800);
+  /* outline: 1px dashed yellow; */
 }
 
 .top-icon {
   display: grid;
   justify-content: center;
   align-content: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   padding: 10px;
-  background-color: var(--Neutral-600);
+  background-color: var(--Neutral-700);
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -48,7 +43,7 @@ body {
 .filter-bar {
   display: grid;
   justify-items: center;
-  outline: 1px dashed red;
+  /* outline: 1px dashed red; */
 }
 
 .filter-title {
@@ -61,7 +56,7 @@ body {
 .extension-title,
 .extension-body,
 .remove-button {
-  color: var(--Neutral-0);
+  color: var(--Neutral-100);
 }
 
 .filter-tab {
@@ -69,21 +64,28 @@ body {
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-around;
   gap: 10px;
-  outline: 1px dashed blue;
+  /* outline: 1px dashed blue; */
+}
+
+.filter-tab [aria-selected="true"] {
+  background-color: var(--Red-500);
+  color: black;
+  border: 1px solid var(--Red-500);
 }
 
 .filter-tab button {
   font: var(--text-button);
   background-color: var(--Neutral-700);
-  border: 1px solid var(--Neutral-0);
+  border: 1px solid var(--Neutral-600);
   padding: 10px 15px;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .extension-card {
-  background-color: var(--Neutral-700);
+  background-color: var(--Neutral-800);
   border-radius: 20px;
+  border: 1px solid var(--Neutral-600);
   padding: 20px;
 }
 
@@ -93,7 +95,7 @@ body {
   /* grid-column: 2; */
   /* justify-self: flex-start; */
   align-items: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   /* outline: 1px dashed white; */
 }
 
@@ -132,15 +134,48 @@ body {
 
 .remove-button {
   font: var(--text-body);
-  background-color: var(--Neutral-700);
-  border: 1px solid var(--Neutral-300);
-  padding: 5px 10px;
+  background-color: var(--Neutral-800);
+  border: 1px solid var(--Neutral-600);
+  padding: 5px 15px;
   border-radius: 20px;
   cursor: pointer;
   /* outline: 1px dashed orange; */
 }
 
-.switch {
-  outline: 1px dashed red;
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
 
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  background-color: var(--Neutral-600);
+  border-radius: 34px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  top: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--Red-500);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(22px);
 }
