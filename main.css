@@ -37,7 +37,6 @@ body {
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  /* outline: 1px dashed green; */
 }
 
 .filter-bar {
@@ -140,6 +139,19 @@ body {
   border-radius: 20px;
   cursor: pointer;
   /* outline: 1px dashed orange; */
+}
+
+.top-icon:hover,
+.filter-tab button:hover,
+.remove-button:hover,
+.slider:hover {
+  outline: 2px solid var(--Red-700);
+  transition: all 0.2s;
+}
+
+.filter-tab [aria-selected="false"]:hover,
+.remove-button:hover {
+  background-color: var(--Neutral-600);
 }
 
 .switch input {
