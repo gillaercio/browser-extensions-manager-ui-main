@@ -35,8 +35,13 @@ body {
   padding: 10px;
   background-color: var(--Neutral-700);
   border-radius: 10px;
-  border: none;
+  border: 1px transparent;
   cursor: pointer;
+}
+
+.top-icon:hover {
+  background-color: var(--Neutral-600);
+  transition: background-color 0.3s;
 }
 
 .filter-bar {
@@ -69,12 +74,16 @@ body {
 .filter-tab [aria-selected="true"] {
   background-color: var(--Red-500);
   color: black;
-  border: 1px solid var(--Red-500);
+}
+
+.filter-tab [aria-selected="false"]:hover {
+  background-color: var(--Neutral-700);
+  transition: background-color 0.3s;
 }
 
 .filter-tab button {
   font: var(--text-button);
-  background-color: var(--Neutral-700);
+  background-color: var(--Neutral-800);
   border: 1px solid var(--Neutral-600);
   padding: 10px 15px;
   border-radius: 20px;
@@ -86,13 +95,12 @@ body {
   border-radius: 20px;
   border: 1px solid var(--Neutral-600);
   padding: 20px;
+  margin-top: 10px;
 }
 
 .extension-header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* grid-column: 2; */
-  /* justify-self: flex-start; */
   align-items: flex-start;
   margin-bottom: 20px;
   /* outline: 1px dashed white; */
@@ -141,17 +149,18 @@ body {
   /* outline: 1px dashed orange; */
 }
 
-.top-icon:hover,
-.filter-tab button:hover,
-.remove-button:hover,
-.slider:hover {
-  outline: 2px solid var(--Red-700);
-  transition: all 0.2s;
+.remove-button:hover {
+  background-color: var(--Red-500);
+  color: black;
 }
 
-.filter-tab [aria-selected="false"]:hover,
-.remove-button:hover {
-  background-color: var(--Neutral-600);
+.top-icon:focus,
+.filter-tab button:focus,
+.remove-button:focus,
+.slider input:focus {
+  outline: none;
+  border: 1px solid var(--Red-700);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .switch input {
@@ -186,6 +195,12 @@ body {
 
 .switch input:checked + .slider {
   background-color: var(--Red-500);
+}
+
+.filter-tab [aria-selected="true"]:hover,
+.switch input:checked + .slider:hover {
+  background-color: var(--Red-700);
+  transition: background-color 0.3s;
 }
 
 .switch input:checked + .slider::before {
