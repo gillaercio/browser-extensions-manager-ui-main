@@ -11,23 +11,21 @@ body {
   padding: 15px;
   display: grid;
   gap: 15px;
-  /* background-color: var(--Neutral-800); */
   background-image: var(--Dark-Gradient);
+  /* background-color: var(--Neutral-800); */
 }
 
 .top-bar {
   background-color: var(--Neutral-800);
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   align-items: center;
-  justify-items: flex-end;
+  justify-content: space-between;
   padding: 10px;
   /* outline: 1px dashed yellow; */
 }
 
 .top-icon {
-  display: grid;
   justify-content: center;
   align-content: center;
   width: 50px;
@@ -86,8 +84,14 @@ body {
   background-color: var(--Neutral-800);
   border: 1px solid var(--Neutral-600);
   padding: 10px 15px;
-  border-radius: 20px;
+  /* padding: 10px; */
+  border-radius: 30px;
   cursor: pointer;
+}
+
+#extensions-container {
+  display: grid;
+  gap: 10px;
 }
 
 .extension-card {
@@ -95,11 +99,12 @@ body {
   border-radius: 20px;
   border: 1px solid var(--Neutral-600);
   padding: 20px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .extension-header {
-  display: grid;
+  display: flex;
+  gap: 20px;
   grid-template-columns: repeat(2, 1fr);
   align-items: flex-start;
   margin-bottom: 20px;
@@ -109,15 +114,15 @@ body {
 .extension-icon {
   background-image: url(assets/images/logo-devlens.svg);
   background-repeat: no-repeat;
-  width: 60px;
+  width: 85px;
   height: 60px;
   /* outline: 1px dashed white; */
 }
 
 .extension-description {
   display: grid;
-  justify-content: flex-start;
-  width: 230px;
+  justify-self: flex-start;
+  width: 100%;
   gap: 10px;
   /* outline: 1px dashed red; */
 }
@@ -136,6 +141,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
+  margin-top: 40px;
   /* outline: 1px dashed orange; */
 }
 
@@ -197,6 +203,10 @@ body {
   background-color: var(--Red-500);
 }
 
+.switch input:focus + .slider {
+  outline: 1px solid var(--Red-700);
+}
+
 .filter-tab [aria-selected="true"]:hover,
 .switch input:checked + .slider:hover {
   background-color: var(--Red-700);
@@ -205,4 +215,43 @@ body {
 
 .switch input:checked + .slider::before {
   transform: translateX(22px);
+}
+
+@media screen and (min-width: 1024px) {
+  #content {
+    min-width: 1024px;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    /* outline: 1px dashed red; */
+  }
+
+  .filter-bar {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: flex-end;
+    /* outline: 1px dashed red; */
+  }
+
+  .filter-title {
+    justify-self: flex-start;
+  }
+
+  .filter-tab {
+    padding: 10px;
+  }
+
+  #extensions-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .extension-card {
+    display: grid;
+    align-items: space-between;
+  }
+
+  .extension-actions {
+    align-items: flex-end;
+    /* outline: 1px dashed pink; */
+  }
 }
