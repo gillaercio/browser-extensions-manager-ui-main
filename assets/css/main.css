@@ -3,6 +3,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  background-image: var(--Dark-Gradient-vertical);
 }
 
 #content {
@@ -12,17 +13,15 @@ body {
   display: grid;
   gap: 15px;
   background-image: var(--Dark-Gradient);
-  /* background-color: var(--Neutral-800); */
 }
 
 .top-bar {
   background-color: var(--Neutral-800);
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  /* outline: 1px dashed yellow; */
 }
 
 .top-icon {
@@ -32,20 +31,18 @@ body {
   height: 50px;
   padding: 10px;
   background-color: var(--Neutral-700);
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px transparent;
   cursor: pointer;
 }
 
 .top-icon:hover {
   background-color: var(--Neutral-600);
-  transition: background-color 0.3s;
 }
 
 .filter-bar {
   display: grid;
   justify-items: center;
-  /* outline: 1px dashed red; */
 }
 
 .filter-title {
@@ -66,7 +63,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-around;
   gap: 10px;
-  /* outline: 1px dashed blue; */
 }
 
 .filter-tab [aria-selected="true"] {
@@ -76,7 +72,6 @@ body {
 
 .filter-tab [aria-selected="false"]:hover {
   background-color: var(--Neutral-700);
-  transition: background-color 0.3s;
 }
 
 .filter-tab button {
@@ -84,7 +79,6 @@ body {
   background-color: var(--Neutral-800);
   border: 1px solid var(--Neutral-600);
   padding: 10px 15px;
-  /* padding: 10px; */
   border-radius: 30px;
   cursor: pointer;
 }
@@ -99,16 +93,13 @@ body {
   border-radius: 20px;
   border: 1px solid var(--Neutral-600);
   padding: 20px;
-  /* margin-top: 10px; */
 }
 
 .extension-header {
   display: flex;
   gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
   align-items: flex-start;
   margin-bottom: 20px;
-  /* outline: 1px dashed white; */
 }
 
 .extension-icon {
@@ -116,7 +107,6 @@ body {
   background-repeat: no-repeat;
   width: 85px;
   height: 60px;
-  /* outline: 1px dashed white; */
 }
 
 .extension-description {
@@ -124,7 +114,6 @@ body {
   justify-self: flex-start;
   width: 100%;
   gap: 10px;
-  /* outline: 1px dashed red; */
 }
 
 .extension-title {
@@ -138,11 +127,9 @@ body {
 
 .extension-actions {
   display: flex;
-  grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
   margin-top: 40px;
-  /* outline: 1px dashed orange; */
 }
 
 .remove-button {
@@ -152,7 +139,6 @@ body {
   padding: 5px 15px;
   border-radius: 20px;
   cursor: pointer;
-  /* outline: 1px dashed orange; */
 }
 
 .remove-button:hover {
@@ -166,7 +152,6 @@ body {
 .slider input:focus {
   outline: none;
   border: 1px solid var(--Red-700);
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .switch input {
@@ -183,7 +168,6 @@ body {
   height: 28px;
   background-color: var(--Neutral-600);
   border-radius: 34px;
-  transition: background-color 0.3s;
   cursor: pointer;
 }
 
@@ -210,27 +194,40 @@ body {
 .filter-tab [aria-selected="true"]:hover,
 .switch input:checked + .slider:hover {
   background-color: var(--Red-700);
-  transition: background-color 0.3s;
 }
 
 .switch input:checked + .slider::before {
   transform: translateX(22px);
 }
 
+.top-icon:hover,
+.filter-tab [aria-selected="false"]:hover,
+.remove-button:hover,
+.switch input:checked + .slider:hover {
+  transition: background-color 0.3s;
+}
+
 @media screen and (min-width: 1024px) {
+  body {
+    background-image: var(--Dark-Gradient);
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 100%;
+  }
+
   #content {
     min-width: 1024px;
     max-width: 100%;
     margin: 0 auto;
-    justify-content: center;
-    /* outline: 1px dashed red; */
+    /* justify-content: center; */
+    /* align-self: flex-start; */
+    background-image: none;
   }
 
   .filter-bar {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     justify-items: flex-end;
-    /* outline: 1px dashed red; */
   }
 
   .filter-title {
@@ -247,11 +244,54 @@ body {
 
   .extension-card {
     display: grid;
-    align-items: space-between;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  #content {
+    max-width: 1400px;
+    margin-top: 100px;
   }
 
-  .extension-actions {
-    align-items: flex-end;
-    /* outline: 1px dashed pink; */
+  .top-bar {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+
+  .top-logo {
+    width: 300px;
+  }
+
+  .top-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .top-icon img {
+    width: 50px;
+  }
+
+  .filter-bar {
+    margin-block: 20px;
+  }
+
+  .filter-title {
+    font-size: clamp(3.2rem, 3.2rem + 1.666vw, 4rem);
+  }
+
+  .filter-tab button {
+    font-size: clamp(1.7rem, 1.7rem + 1.666vw, 2.1rem);
+  }
+
+  .extension-card {
+    padding: 30px;
+  }
+
+  .extension-title {
+    font-size: clamp(1.8rem, 1.8rem + 1.666vw, 2.2rem);
+  }
+
+  .extension-body, .remove-button {
+    font-size: clamp(1.5rem, 1.4rem + 0.833vw, 1.7rem);
   }
 }
