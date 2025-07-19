@@ -76,3 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
+
+document.querySelector(".theme-toggle").addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+
+  const icon = document.querySelector(".theme-toggle img");
+  const isLight = document.body.classList.contains("light-theme");
+  const logo = document.querySelector(".top-logo");
+  icon.src = isLight ? "assets/images/icon-moon.svg" : "assets/images/icon-sun.svg";
+  icon.alt = isLight ? "Icon moon" : "Icon sun";
+  logo.src = isLight ? "assets/images/logo.svg" : "assets/images/logo-extensions-white.svg";
+  logo.alt = isLight ? "Logo Extensions Light Theme" : "Logo Extensions Dark Theme";
+});
