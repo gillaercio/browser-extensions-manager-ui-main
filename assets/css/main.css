@@ -3,7 +3,7 @@ body {
   height: 100%;
   min-height: 100vh;
   justify-content: center;
-  background-image: var(--Dark-Gradient);
+  background-image: var(--Back-Gradient);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -21,6 +21,7 @@ body {
 .top-bar {
   background-color: var(--Neutral-800);
   border-radius: 20px;
+  box-shadow: 1px 1px 5px var(--Neutral-700);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,7 +71,7 @@ body {
 
 .filter-tab [aria-selected="true"] {
   background-color: var(--Red-500);
-  color: black;
+  color: var(--Button-color);
 }
 
 .filter-tab [aria-selected="false"]:hover {
@@ -97,7 +98,7 @@ body {
 .extension-card {
   background-color: var(--Neutral-800);
   border-radius: 20px;
-  border: 1px solid var(--Neutral-600);
+  border: 1px solid var(--Neutral-700);
   padding: 20px;
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 1;
@@ -158,7 +159,7 @@ body {
 
 .remove-button:hover {
   background-color: var(--Red-500);
-  color: black;
+  color: var(--Button-color);
 }
 
 .top-icon:focus,
@@ -227,6 +228,11 @@ body {
     min-width: 1024px;
     max-width: 100%;
     margin: 0 auto;
+    margin-top: 50px;
+  }
+
+  .top-bar {
+    margin-bottom: 30px;
   }
 
   .filter-bar {
@@ -255,12 +261,6 @@ body {
 @media screen and (min-width: 1440px) {
   #content {
     max-width: 1400px;
-    margin-top: 100px;
-  }
-
-  .top-bar {
-    padding: 25px;
-    margin-bottom: 30px;
   }
 
   .top-logo {
