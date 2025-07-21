@@ -2,10 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 html {
   font-size: 62.5%;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 @font-face {
@@ -29,9 +32,7 @@ html {
 --Red-700: hsl(3, 77%, 44%);
 
 --Light-Gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
---Light-Gradient-vertical: linear-gradient(90deg, #EBF2FC 0%, #EEF8F9 100%);
 --Dark-Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
---Dark-Gradient-vertical: linear-gradient(90deg, #040918 0%, #091540 100%);
 
   --noto-font: 'Noto-sans', sans-serif;
 

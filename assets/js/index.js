@@ -33,50 +33,63 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderExtensions(datas) {
-    container.innerHTML = "";
+    const oldCards = Array.from(container.children);
 
-    datas.forEach(data => {
-      const card = document.createElement("article");
-      card.className = "extension-card";
+    oldCards.forEach(card => {
+      card.classList.add("hide");
+    });
 
-      card.innerHTML = `
-        <div class="extension-header">
-          <div class="extension-icon" style="background-image: url('${data.logo}');"></div>
-          <div class="extension-description">
-            <h2 class="extension-title">${data.name}</h2>
-            <p class="extension-body">${data.description}</p>
+    setTimeout(() => {
+      container.innerHTML = "";
+
+      datas.forEach(data => {
+        const card = document.createElement("article");
+        card.className = "extension-card";
+
+        card.innerHTML = `
+          <div class="extension-header">
+            <div class="extension-icon" style="background-image: url('${data.logo}');"></div>
+            <div class="extension-description">
+              <h2 class="extension-title">${data.name}</h2>
+              <p class="extension-body">${data.description}</p>
+            </div>
           </div>
-        </div>
-        <div class="extension-actions">
-          <button class="remove-button">Remove</button>
-          <label class="switch">
-            <input type="checkbox" ${data.isActive ? "checked" : ""}
-            data-name="${data.name}" />
-            <span class="slider"></span>
-          </label>
-        </div>
-        `;
-        container.appendChild(card);
-      });
+          <div class="extension-actions">
+            <button class="remove-button">Remove</button>
+            <label class="switch">
+              <input type="checkbox" ${data.isActive ? "checked" : ""}
+              data-name="${data.name}" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          `;
+          card.classList.add("hide");
+          container.appendChild(card);
 
-      container.querySelectorAll('input[type="checkbox"]').forEach(input => {
-        input.addEventListener("change", (e) => {
-          const name = e.target.dataset.name;
-          const updatedStatus = e.target.checked;
-
-          const dat = allExtensions.find(dat => dat.name === name);
-          if (dat) {
-            dat.isActive = updatedStatus;
-
-            if (currentFilter !== "all") {
-              renderExtensions(applyFilter(allExtensions, currentFilter));
-            }
-          }
+          requestAnimationFrame(() => {
+            card.classList.remove("hide");
+          });
         });
-      });
-  }
-});
-
+        
+        container.querySelectorAll('input[type="checkbox"]').forEach(input => {
+          input.addEventListener("change", (e) => {
+            const name = e.target.dataset.name;
+            const updatedStatus = e.target.checked;
+            
+            const dat = allExtensions.find(dat => dat.name === name);
+            if (dat) {
+              dat.isActive = updatedStatus;
+              
+              if (currentFilter !== "all") {
+                renderExtensions(applyFilter(allExtensions, currentFilter));
+              }
+            }
+          });
+        });
+      }, 300);
+    }
+  });
+  
 document.querySelector(".theme-toggle").addEventListener("click", () => {
   document.body.classList.toggle("light-theme");
 
